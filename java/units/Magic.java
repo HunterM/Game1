@@ -16,6 +16,11 @@ public class Magic extends Saint{
 //    }
 
     @Override
+    public void step() {
+
+    }
+
+    @Override
     public String getInfo() {
         return "Маг " + name;
     }

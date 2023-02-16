@@ -16,6 +16,11 @@ public class Prist extends Saint{
 //    }
 
     @Override
+    public void step() {
+
+    }
+
+    @Override
     public String getInfo() {
         return "Лекарь " + name;
     }

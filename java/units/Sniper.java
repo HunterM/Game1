@@ -16,6 +16,11 @@ public class Sniper extends Archer{
 //    }
 
     @Override
+    public void step() {
+
+    }
+
+    @Override
     public String getInfo() {
         return "Снайпер " + name;
     }

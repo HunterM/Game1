@@ -13,6 +13,9 @@ public class Main {
         List.add(new Sniper(getName()));
         List.add(new Magic(getName()));
         List.add(new Prist(getName()));
+        List.add(new Fermer(getName()));
+        List.add(new Pikiner(getName()));
+
         List.forEach(n -> System.out.println(n.getInfo()));
 
     }
