@@ -3,18 +3,8 @@ package units;
 public class Pikiner extends Pehotinec{
 
     public Pikiner(String name) {
-        super(120,120,5,5,15,20, name);
+        super(4,5,1,3,10,4,0, name);
     }
-//    @Override
-//    public String toString(){
-//        return "Снайпер " + name;
-//    }
-
-//    @Override
-//    public void step() {
-//
-//    }
-
     @Override
     public void step() {
 

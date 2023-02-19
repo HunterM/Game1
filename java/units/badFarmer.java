@@ -1,8 +1,8 @@
 package units;
 
-public class Fermer extends Pehotinec{
+public class badFarmer extends Pehotinec{
 
-    public Fermer(String name) {
+    public badFarmer(String name) {
         super(1,1,1,0,1,3, 1, name);
     }
 
@@ -14,6 +14,6 @@ public class Fermer extends Pehotinec{
 
     @Override
     public String getInfo() {
-        return "Фермер " + name;
+        return "Прислужник " + name;
     }
 }

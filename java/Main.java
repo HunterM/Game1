@@ -6,22 +6,35 @@ public class Main {
     public static void main(String[] args) {
         ArrayList<Human> List = new ArrayList<>();
         for (int index =0; index <10; index++)
-        switch (new Random().nextInt(0, 5)){
+        switch (new Random().nextInt(0, 10)){
             case 0:
-                List.add(new Pikiner(getName()));
+                List.add(new badFarmer(getName()));
  break;
             case 1:
-                List.add(new Fermer(getName()));
+                List.add(new Rouge(getName()));
  break;
             case 2:
-                List.add(new Prist(getName()));
+                List.add(new Sniper(getName()));
  break;
             case 3:
-                List.add(new Magic(getName()));
+                List.add(new Prist(getName()));
  break;
-            case 4:
+
+            case 5:
+                List.add(new Fermer(getName()));
+break;
+            case 6:
+                List.add(new Pikiner(getName()));
+ break;
+            case 7:
                 List.add(new XBowMan(getName()));
  break;
+            case 8:
+                List.add(new Magic(getName()));
+ break;
+//            case 9:
+//                List.add(new XBowMan(getName()));
+// break;
         }
 // Sniper archer = new Sniper("Vanya");
 // ArrayList<Human> List = new ArrayList<>();

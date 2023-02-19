@@ -3,7 +3,7 @@ package units;
 public class Sniper extends Archer{
 
     public Sniper(String name) {
-        super(120,120,5,5,15,20, name);
+        super(12,10,32,8,10,15,9, name);
     }
 //    @Override
 //    public String toString(){
