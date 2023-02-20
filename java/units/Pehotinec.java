@@ -6,8 +6,13 @@ public abstract class Pehotinec extends Human{
 
     public Pehotinec(int ataka, int deff, int uron, int maxUron, int health, int speed, int delivery, String name) {
         super(ataka, deff, uron, maxUron, health, speed, delivery);
-//        this.shots = shots;
-//        this.maxShots = maxShots;
+//         this.ataka = ataka;
+        this.ataka = ataka;
+        this.deff = deff;
+        this.uron = uron;
+        this.health = health;
+        this.speed = speed;
+        this.delivery = delivery;
         this.name = name;
     }
 

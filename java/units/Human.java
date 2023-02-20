@@ -37,4 +37,12 @@ public abstract class Human implements inGameInterface {
     public String getInfo() {
         return null;
     }
+
+    public int getHP() {
+        return health;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
 }

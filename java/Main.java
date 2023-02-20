@@ -1,57 +1,63 @@
 import units.*;
+
+import java.util.Comparator;
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.Random;
+
+//import static jdk.internal.org.jline.reader.impl.LineReaderImpl.CompletionType.List;
+
 public class Main {
     public static void main(String[] args) {
+
+
         ArrayList<Human> List = new ArrayList<>();
         for (int index =0; index <10; index++)
-        switch (new Random().nextInt(0, 10)){
+        switch (new Random().nextInt(0, 9)) {
             case 0:
                 List.add(new badFarmer(getName()));
- break;
+                break;
             case 1:
                 List.add(new Rouge(getName()));
- break;
+                break;
             case 2:
                 List.add(new Sniper(getName()));
- break;
+                break;
             case 3:
                 List.add(new Prist(getName()));
- break;
+                break;
 
             case 5:
                 List.add(new Fermer(getName()));
-break;
+                break;
             case 6:
                 List.add(new Pikiner(getName()));
- break;
+                break;
             case 7:
                 List.add(new XBowMan(getName()));
- break;
+                break;
             case 8:
                 List.add(new Magic(getName()));
- break;
-//            case 9:
-//                List.add(new XBowMan(getName()));
-// break;
+                break;
         }
-// Sniper archer = new Sniper("Vanya");
-// ArrayList<Human> List = new ArrayList<>();
-// List.add(new XBowMan(getName()));
-// List.add(new Sniper(getName()));
-// List.add(new Magic(getName()));
-// List.add(new Prist(getName()));
-// List.add(new Fermer(getName()));
-// List.add(new Pikiner(getName()));
-//
-        List.forEach(n -> System.out.println(n.getInfo()));
-// List.forEach(n -> System.out.println(n.getInfo()));
-// List.forEach(n -> System.out.println(n.getInfo()));
-// List.forEach(n -> System.out.println(n.getInfo()));
-// List.forEach(n -> System.out.println(n.getInfo()));
-    }
+
+    List.sort(new Comparator<Human>() {
+        @Override
+        public int compare(Human o1, Human o2) {
+            if (o2.getSpeed() == o1.getSpeed()) return o2.getHP()-o1.getHP();
+
+            return o2.getSpeed() - o1.getSpeed();
+        }
+    });
+
+        List.forEach(n-> System.out.println(n.getInfo() + " " + n.getSpeed() + " <> " + n.getHP()));
+        }
+
+//        List.forEach(n -> System.out.println(n.getInfo()));
+
+
     private static String getName(){
         return String.valueOf(Names.values()[new Random().nextInt(Names.values().length)]);
     }
+
 }

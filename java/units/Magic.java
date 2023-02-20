@@ -15,3 +15,4 @@ public class Magic extends Saint{
         return "Маг " + name;
     }
 }
+
