@@ -13,36 +13,23 @@ public class Main {
 
         ArrayList<Human> List = new ArrayList<>();
         for (int index =0; index <10; index++)
-        switch (new Random().nextInt(0, 9)) {
+        switch (new Random().nextInt(0, 4)) {
             case 0:
-                List.add(new badFarmer(getName()));
-                break;
-            case 1:
-                List.add(new Rouge(getName()));
-                break;
-            case 2:
-                List.add(new Sniper(getName()));
-                break;
-            case 3:
-                List.add(new Prist(getName()));
-                break;
-
-            case 5:
                 List.add(new Fermer(getName()));
                 break;
-            case 6:
+            case 1:
                 List.add(new Pikiner(getName()));
                 break;
-            case 7:
+            case 2:
                 List.add(new XBowMan(getName()));
                 break;
-            case 8:
+            case 3:
                 List.add(new Magic(getName()));
                 break;
         }
         ArrayList<Human> List1 = new ArrayList<>();
         for (int index =0; index <10; index++)
-            switch (new Random().nextInt(0, 9)) {
+            switch (new Random().nextInt(0, 4)) {
                 case 0:
                     List1.add(new badFarmer(getName()));
                     break;
@@ -56,18 +43,6 @@ public class Main {
                     List1.add(new Prist(getName()));
                     break;
 
-                case 5:
-                    List1.add(new Fermer(getName()));
-                    break;
-                case 6:
-                    List1.add(new Pikiner(getName()));
-                    break;
-                case 7:
-                    List1.add(new XBowMan(getName()));
-                    break;
-                case 8:
-                    List1.add(new Magic(getName()));
-                    break;
             }
 
         List1.sort(new Comparator<Human>() {
@@ -87,9 +62,9 @@ public class Main {
         }
     });
 
-        List.forEach(n-> System.out.println(n.getInfo() + " " + n.getSpeed() + " <> " + n.getHP()));
+        List.forEach(n-> System.out.println("Светлый " + n.getInfo() + " " + n.getSpeed() + " <> " + n.getHP()));
         System.out.println("===================================");
-        List1.forEach(n-> System.out.println(n.getInfo() + " " + n.getSpeed() + " <> " + n.getHP()));
+        List1.forEach(n-> System.out.println("Темный " + n.getInfo() + " " + n.getSpeed() + " <> " + n.getHP()));
         }
 
 //        List.forEach(n -> System.out.println(n.getInfo()));
