@@ -1,48 +1,59 @@
 package units;
 
+import java.util.ArrayList;
+
 public abstract class Human implements inGameInterface {
-    
-    protected int ataka, deff, shots, uron, maxUron, health, speed, delivery, mana;
+    protected String name;
+    protected float hp;
+    protected int maxHp;
+    protected int attack;
+    protected int damageMin;
+    protected int damageMax;
+    protected int defense;
+    protected int speed;
+    protected Point2D coords;
+    protected String state;
 
-    public Human(int ataka, int deff, int shots, int uron, int maxUron, 
-                 int health, int speed,int delivery,int mana, String name) {
-        this.ataka = ataka;
-        this.deff = deff;
-        this.shots = shots;
-        this.uron = uron;
-        this.maxUron = maxUron;
-        this.health = health;
+    protected Human(String name, float hp, int maxHp, int attack, int damageMin,
+                    int damageMax, int defense, int speed, int posX, int posY) {
+        this.name = name;
+        this.hp = hp;
+        this.maxHp = maxHp;
+        this.attack = attack;
+        this.damageMin = damageMin;
+        this.damageMax = damageMax;
+        this.defense = defense;
         this.speed = speed;
-        this.delivery = delivery;
-        this.mana = mana;
-
-        
+        coords = new Point2D(posX, posY);
+        state = "Stand";
     }
 
-    public Human(int ataka, int deff, int uron, int maxUron, int health, int speed, int delivery) {
-    }
-
-    public Human(int ataka, int deff, int uron, int health, int speed, int mana) {
-    }
-
-//    public Human(int hp, int maxHp, int ataka, int deff) {
-//        this.hp = hp;
-//        this.maxHp = maxHp;
-//        this.ataka = ataka;
-//        this.deff = deff;
-//    }
-
-
+    public int getSpeed() { return this.speed; }
+    public float getHp () { return this.hp; }
     @Override
-    public String getInfo() {
-        return null;
+    public void step(ArrayList<Human> team1, ArrayList<Human> team2) { }
+    protected int findNearest(ArrayList<Human> team){
+        double min = Double.MAX_VALUE;
+        int index = 0;
+        for (int i = 0; i < team.size(); i++) {
+            if(min > coords.getDistance(team.get(i).coords)) {
+                index = i;
+                min = coords.getDistance(team.get(i).coords);
+            }
+        }
+        return index;
     }
 
-    public int getHP() {
-        return health;
+    protected void getDamage(float damage){
+        this.hp -= damage;
+        if (hp <= 0) {
+            hp = 0;
+            state = "Die";
+        }
+        if (hp > maxHp) hp = maxHp;
     }
-
-    public int getSpeed() {
-        return speed;
+    @Override
+    public StringBuilder getInfo() {
+        return new StringBuilder("");
     }
 }

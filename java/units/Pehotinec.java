@@ -1,23 +1,11 @@
 package units;
 
-public abstract class Pehotinec extends Human{
-    protected int shots, maxShots;
-    protected String name;
+import units.Human;
 
-    public Pehotinec(int ataka, int deff, int uron, int maxUron, int health, int speed, int delivery, String name) {
-        super(ataka, deff, uron, maxUron, health, speed, delivery);
-//         this.ataka = ataka;
-        this.ataka = ataka;
-        this.deff = deff;
-        this.uron = uron;
-        this.health = health;
-        this.speed = speed;
-        this.delivery = delivery;
-        this.name = name;
+public abstract class Pehotinec extends Human {
+
+    public Pehotinec(String name, float hp, int maxHp, int attack, int damageMin, int damageMax, int defense, int speed, int posX, int posY) {
+        super(name, hp, maxHp, attack, damageMin, damageMax, defense, speed, posX, posY);
     }
 
-//    public int getAttak(){
-//        return super.ataka;
-//    }
 }
-
