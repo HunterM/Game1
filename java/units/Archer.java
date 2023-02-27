@@ -14,14 +14,6 @@ public abstract class Archer extends Human {
         this.cartridges = cartridges;
     }
 
-    //    Реализовать метод step() лучников.
-//    3.1 Если жизнь равна нулю или стрел нет, завершить обработку.
-//    3.2 Поиск среди противников наиболее приближённого.
-//    3.3 Нанести среднее повреждение найденному противнику.
-//    3.4 Найти среди своих крестьянина.
-//    3.5 Если найден завершить метод иначе уменьшить запас стрел на одну.
-
-
     @Override
     public void step(ArrayList<Human> team1, ArrayList<Human> team2) {
         if (state.equals("Die") || cartridges == 0) return;
@@ -31,7 +23,7 @@ public abstract class Archer extends Human {
         victim.getDamage(damage);
         for (Human human : team1) {
             if (human.getInfo().toString().split(":")[0].equals("Фермер") && human.state.equals("Stand")) {
-                human.state = "Busy";
+                human.state = "Занят";
                 return;
             }
         }

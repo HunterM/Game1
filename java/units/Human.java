@@ -32,8 +32,11 @@ public abstract class Human implements inGameInterface {
     public float getHp () { return this.hp; }
     @Override
     public void step(ArrayList<Human> team1, ArrayList<Human> team2) { }
+
+//    Найти ближайшего противника
     protected int findNearest(ArrayList<Human> team){
         double min = Double.MAX_VALUE;
+//        double min = 100;
         int index = 0;
         for (int i = 0; i < team.size(); i++) {
             if(min > coords.getDistance(team.get(i).coords)) {
@@ -43,7 +46,7 @@ public abstract class Human implements inGameInterface {
         }
         return index;
     }
-
+//Определение повреждения и лечения
     protected void getDamage(float damage){
         this.hp -= damage;
         if (hp <= 0) {
