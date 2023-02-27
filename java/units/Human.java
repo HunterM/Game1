@@ -12,6 +12,8 @@ public abstract class Human implements inGameInterface {
     protected int defense;
     protected int speed;
     protected Point2D coords;
+
+//    Состояние персонажа state = Stand по умолчанию
     protected String state;
 
     protected Human(String name, float hp, int maxHp, int attack, int damageMin,

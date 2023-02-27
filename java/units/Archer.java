@@ -16,10 +16,9 @@ public abstract class Archer extends Human {
 
     @Override
     public void step(ArrayList<Human> team1, ArrayList<Human> team2) {
-        if (state.equals("Die") || cartridges == 0) return;
+        if (state.equals("Умер") || cartridges == 0) return;
         Human victim = team2.get(findNearest(team2));
-        // int a = boolean ? first : second;
-        float damage = (victim.defense - attack) > 0 ? damageMin : (victim.defense - attack) < 0 ? damageMax : (damageMin + damageMax) / 2;
+            float damage = (victim.defense - attack) > 0 ? damageMin : (victim.defense - attack) < 0 ? damageMax : (damageMin + damageMax) / 2;
         victim.getDamage(damage);
         for (Human human : team1) {
             if (human.getInfo().toString().split(":")[0].equals("Фермер") && human.state.equals("Stand")) {
