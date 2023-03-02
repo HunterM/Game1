@@ -12,9 +12,20 @@ public abstract class Human implements inGameInterface {
     protected int defense;
     protected int speed;
     protected Point2D coords;
-
-//    Состояние персонажа state = Stand по умолчанию
     protected String state;
+    protected static int heroCnt;
+
+    @Override
+    public String toString() {
+        return name +
+                " H:" + Math.round(hp) +
+                " D:" + defense +
+                " A:" + attack +
+                " Dmg:" + Math.round(Math.abs((damageMin+damageMax)/2)) +
+                " " + state;
+    }
+
+    public int[] getCoords() {return new int[]{coords.posX, coords.posY};}
 
     protected Human(String name, float hp, int maxHp, int attack, int damageMin,
                     int damageMax, int defense, int speed, int posX, int posY) {
@@ -27,33 +38,31 @@ public abstract class Human implements inGameInterface {
         this.defense = defense;
         this.speed = speed;
         coords = new Point2D(posX, posY);
-        state = "Stand";
+        state = "Ходит";
+        heroCnt++;
     }
 
-    public int getSpeed() { return this.speed; }
-    public float getHp () { return this.hp; }
+    public int getSpeed() { return speed;}
+    public float getHp() { return hp;}
     @Override
-    public void step(ArrayList<Human> team1, ArrayList<Human> team2) { }
-
-//    Найти ближайшего противника
-    protected int findNearest(ArrayList<Human> team){
-        double min = Double.MAX_VALUE;
-//        double min = 100;
+    public void step(ArrayList<Human> team1, ArrayList<Human> team2) {}
+    public int findNearest(ArrayList<Human> team){
         int index = 0;
+        double min = Double.MAX_VALUE;
         for (int i = 0; i < team.size(); i++) {
-            if(min > coords.getDistance(team.get(i).coords)) {
+            if(min > coords.getDistance(team.get(i).coords) && !team.get(i).state.equals("Die")) {
                 index = i;
                 min = coords.getDistance(team.get(i).coords);
             }
         }
         return index;
     }
-//Определение повреждения и лечения
+
     protected void getDamage(float damage){
         this.hp -= damage;
         if (hp <= 0) {
             hp = 0;
-            state = "Die";
+            state = "Мертвяк";
         }
         if (hp > maxHp) hp = maxHp;
     }
@@ -61,4 +70,5 @@ public abstract class Human implements inGameInterface {
     public StringBuilder getInfo() {
         return new StringBuilder("");
     }
+
 }

@@ -13,7 +13,7 @@ public class Sniper extends Archer{
         return builder.append("Снайпер:\t").append(Sniper.super.name)
                 .append("\t| ATK:\t").append(Sniper.super.attack)
                 .append("\t| HP:\t").append(Sniper.super.hp)
-                .append(" \t| Arrows:").append(Sniper.super.cartridges)
+                .append(" \t| Arrows:").append(Sniper.super.streli)
                 .append("\t|").append("\t| (X.Y) : ").append(Sniper.super.coords.posX).append(".").append(Sniper.super.coords.posY);
     }
 }

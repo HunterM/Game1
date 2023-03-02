@@ -10,6 +10,9 @@ public class Point2D {
         this.posY = posY;
     }
 
+    protected boolean isLeft(Point2D oponent){
+        return posX < oponent.posX;
+    }
     protected double getDistance(Point2D oponent){
         return Math.sqrt(Math.pow(posX - oponent.posX,2) + Math.pow(posY - oponent.posY,2));
     }

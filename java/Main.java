@@ -6,31 +6,27 @@ import java.util.Random;
 import java.util.Scanner;
 public class Main {
     static final int UNITS = 10;
+    public static ArrayList<Human> allTeam = new ArrayList<>();
+    public static ArrayList<Human> holyTeam = new ArrayList<>();
+    public static ArrayList<Human> darkTeam = new ArrayList<>();
 
     public static void main(String[] args) {
-
-        ArrayList<Human> holyTeam = new ArrayList<>();
-        ArrayList<Human> darkTeam = new ArrayList<>();
-        ArrayList<Human> allTeam = new ArrayList<>();
         Scanner user_input = new Scanner(System.in);
+        System.out.print("Для начала игры нажмите Enter.");
+        user_input.nextLine();
         createTeam(holyTeam, 0, 1);
-        createTeam(darkTeam, 3, 6);
+        createTeam(darkTeam, 3, 10);
         allTeam.addAll(holyTeam);
         allTeam.addAll(darkTeam);
         sortTeam(allTeam);
 
-        System.out.println("Темная сторона");
-        holyTeam.forEach(n -> System.out.println(n.getInfo()));
-        System.out.println("--------------------------------------------------------------------------");
-
-        System.out.println("Светлая сторона");
-        darkTeam.forEach(n -> System.out.println(n.getInfo()));
-        System.out.println("--------------------------------------------------------------------------");
-
-
-        for (Human human: allTeam) {
-            if (holyTeam.contains(human)) human.step(holyTeam, darkTeam);
-            else human.step(darkTeam, holyTeam);
+        while (true){
+            View.view();
+            user_input.nextLine();
+            for (Human human: allTeam) {
+                if (holyTeam.contains(human)) human.step(holyTeam, darkTeam);
+                else human.step(darkTeam, holyTeam);
+            }
         }
     }
     static void createTeam (ArrayList team, int offset, int posY) {
@@ -60,7 +56,6 @@ public class Main {
                     break;
             }
         }
-
     }
     static void sortTeam (ArrayList<Human> team){
         team.sort(new Comparator<Human>() {
@@ -72,7 +67,7 @@ public class Main {
         });
     }
     static String getName() {
-        String name = String.valueOf(Names.values()[new Random().nextInt(Names.values().length-1)]);
-        return name;
+        return String.valueOf(Names.values()[new Random().nextInt(Names.values().length-1)]);
     }
 }
+
