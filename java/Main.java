@@ -46,10 +46,10 @@ public class Main {
                     team.add(new Fermer(getName(), new Point2D(i + 1, posY)));
                     break;
                 case (4):
-                    team.add(new XBowMan(getName(), new Point2D(i + 1, posY)));
+                    team.add(new Pikiner(getName(), new Point2D(i + 1, posY)));
                     break;
                 case (5):
-                    team.add(new Prist(getName(), new Point2D(i + 1, posY)));
+                    team.add(new Pikiner(getName(), new Point2D(i + 1, posY)));
                     break;
                 case (6):
                     team.add(new Pikiner(getName(), new Point2D(i + 1, posY)));

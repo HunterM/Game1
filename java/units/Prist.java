@@ -14,7 +14,7 @@ public class Prist extends Saint{
     @Override
     public StringBuilder getInfo() {
         StringBuilder builder = new StringBuilder();
-        return builder.append("Монах:  \t").append(Prist.super.name)
+        return builder.append("Прист:  \t").append(Prist.super.name)
                 .append("\t| ATK:\t").append(Prist.super.attack)
                 .append("\t| HP:\t").append(Prist.super.hp)
                 .append(" \t| MP:\t").append(Prist.super.mana)

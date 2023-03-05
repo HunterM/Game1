@@ -26,14 +26,26 @@ public class View {
     }
     private static String getChar(int x, int y){
         String out = "| ";
-        for (Human human:  Main.allTeam) {
+        for (Human human: Main.allTeam) {
             if (human.getCoords()[0] == x && human.getCoords()[1] == y){
                 if (human.getHp() == 0) {
                     out = "|" + (AnsiColors.ANSI_RED + human.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
                     break;
                 }
-                if (Main.darkTeam.contains(human)) out = "|" + (AnsiColors.ANSI_GREEN + human.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
-                if (Main.holyTeam.contains(human)) out = "|" + (AnsiColors.ANSI_BLUE + human.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
+                if (Main.darkTeam.contains(human)) out = "|" + (AnsiColors.ANSI_BLUE + human.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
+                if (Main.holyTeam.contains(human)) out = "|" + (AnsiColors.ANSI_GREEN + human.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
+                // if (human.getInfo().charAt(0) == (char)'С'){
+                //     main.darkTeam.contains(human); out = "|" + AnsiColors.ANSI_GREEN + "➹" + AnsiColors.ANSI_RESET;
+                // }
+                // if (human.getInfo().charAt(0) == (char)'Ф'){
+                //     main.darkTeam.contains(human); out = "|" + AnsiColors.ANSI_GREEN + "☀" + AnsiColors.ANSI_RESET;
+                // }
+                // if (human.getInfo().charAt(0) == (char)'К'){
+                //     main.darkTeam.contains(human); out = "|" + AnsiColors.ANSI_GREEN + "☢" + AnsiColors.ANSI_RESET;
+                // }
+                // if (human.getInfo().charAt(0) == (char)'Б'){
+                //     main.darkTeam.contains(human); out = "|" + AnsiColors.ANSI_GREEN + "✒" + AnsiColors.ANSI_RESET;
+                // }
                 break;
             }
         }
@@ -50,10 +62,10 @@ public class View {
         System.out.print("_".repeat(l[0]*2));
         System.out.println("");
         System.out.print(top10 + "    ");
-        System.out.print("Светлая сторона");
+        System.out.print("Green side");
         //for (int i = 0; i < l[0]-9; i++)
         System.out.print(" ".repeat(l[0]-9));
-        System.out.println(":\tТемная сторона");
+        System.out.println(":\tBlue side");
         for (int i = 1; i < 11; i++) {
             System.out.print(getChar(1, i));
         }
@@ -63,7 +75,7 @@ public class View {
         System.out.println(Main.darkTeam.get(0));
         System.out.println(midl10);
 
-        for (int i = 2; i < 9; i++) {
+        for (int i = 2; i < 10; i++) {
             for (int j = 1; j < 11; j++) {
                 System.out.print(getChar(i, j));
             }

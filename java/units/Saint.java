@@ -1,7 +1,5 @@
 package units;
 
-import units.Human;
-
 import java.util.ArrayList;
 
 public abstract class Saint extends Human {
@@ -9,13 +7,14 @@ public abstract class Saint extends Human {
     protected int maxMana;
 
     @Override
-    public void step(ArrayList<Human> team1, ArrayList<Human> team2) {
+    public boolean step(ArrayList<Human> team1, ArrayList<Human> team2) {
         for (Human human: team1) {
             if (human.hp < human.maxHp & !human.state.equals("Мертвяк")) {
                 human.getDamage(damageMax);
-                return;
+                return false;
             }
         }
+        return false;
     }
 
     public Saint(String name, float hp, int maxHp, int attack, int damageMin, int damageMax, int defense,

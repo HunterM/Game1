@@ -14,7 +14,7 @@ public class Magic extends Saint{
     @Override
     public StringBuilder getInfo() {
         StringBuilder builder = new StringBuilder();
-        return builder.append("Колдун: \t").append(Magic.super.name)
+        return builder.append("Маг: \t").append(Magic.super.name)
                 .append("\t| ATK:\t").append(Magic.super.attack)
                 .append("\t| HP:\t").append(Magic.super.hp)
                 .append(" \t| MP:\t").append(Magic.super.mana)

@@ -1,10 +1,9 @@
 package units;
 
 public class Sniper extends Archer{
-
     public Sniper(String name, Point2D coords) {
         super(name, 60.f, 60, 10, 3, 5, 3,
-                9, 22, 10, coords.posX, coords.posY);
+                9, 200, 10, coords.posX, coords.posY);
     }
 
     @Override

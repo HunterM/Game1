@@ -19,8 +19,8 @@ public abstract class Human implements inGameInterface {
     public String toString() {
         return name +
                 " H:" + Math.round(hp) +
-                " D:" + defense +
-                " A:" + attack +
+                " D:" + coords.posX +
+                " A:" + coords.posY +
                 " Dmg:" + Math.round(Math.abs((damageMin+damageMax)/2)) +
                 " " + state;
     }
@@ -45,12 +45,14 @@ public abstract class Human implements inGameInterface {
     public int getSpeed() { return speed;}
     public float getHp() { return hp;}
     @Override
-    public void step(ArrayList<Human> team1, ArrayList<Human> team2) {}
+    public boolean step(ArrayList<Human> team1, ArrayList<Human> team2) {
+        return false;
+    }
     public int findNearest(ArrayList<Human> team){
         int index = 0;
         double min = Double.MAX_VALUE;
         for (int i = 0; i < team.size(); i++) {
-            if(min > coords.getDistance(team.get(i).coords) && !team.get(i).state.equals("Die")) {
+            if(min > coords.getDistance(team.get(i).coords) && !team.get(i).state.equals("Мертвяк")) {
                 index = i;
                 min = coords.getDistance(team.get(i).coords);
             }
